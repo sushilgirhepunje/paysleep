@@ -1,1 +1,22 @@
 <h1>Hello This is the component</h1>
+
+<p>Day 2 10/11/23 </p>
+
+<!-- <ol>
+    <li *ngFor="let name of names">
+        {{name}}
+    </li>
+</ol> -->
+
+<table class="table border border-primary">
+    <tr class="border border-dark bg-dark text-white rounded-30">
+        <td>Name</td>
+        <td>LastName</td>
+        <td>Email</td>
+    </tr>
+    <tr *ngFor="let name of names"> 
+        <td>{{name.fname}}</td>
+        <td>{{name.lname}}</td>
+        <td>{{name.email}}</td>
+    </tr> 
+</table>

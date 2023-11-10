@@ -9,7 +9,7 @@ import { Component } from "@angular/core";
 })
 export class Crud
 {
-    indiData:object = {email:" ",password:" ",isReady:true};
+    indiData:object = {email:" ",password:" ",isReady:false};
     userData:object[]=[{}];
 
     dataHandler(event){
@@ -27,7 +27,8 @@ export class Crud
                     break;
                     case "chId":
                         // this.indiData.isReady = data;
-                        this.indiData = {...this.indiData,isReady:data};
+                        let chkVal = event.target.checked;
+                        this.indiData = {...this.indiData,isReady:chkVal};
                 break;
                
                 case "btn1":

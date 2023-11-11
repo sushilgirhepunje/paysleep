@@ -17,35 +17,35 @@ export class Crud
        let data:any = event.target.value;
 
         switch (ids) {
-            case "emId":
+                  case "emId":
             //  this.indiData.email = data;
-                this.indiData = {...this.indiData,email:data};
-                let value1 = this.userData.find(x=> x.email == this.indiData.email);
-                console.log(value1);
-                
-                break;
+                this.indiData = {...this.indiData,email:data};  
+                if(this.indiData.length != 0)
+                {
+                    let value = this.userData.find(x=> x.email == this.indiData.email);
+                }              
+                     break;
                 case "psId":
-                    // this.indiData.password = data;
                     this.indiData = {...this.indiData,password:data};
                     break;
-                    case "chId":
+                case "chId":
                         // this.indiData.isReady = data;
                         let chkVal = event.target.checked;
                         this.indiData = {...this.indiData,isReady:chkVal};
-                break;
+                    break;
                
                 case "btn1":
                 //  console.log(this.indiData)
                  this.userData.push(this.indiData);
                  console.log(this.userData);
-                break;
+                     break;
 
                 case "upbtn":
                   let value = this.userData.find(x=> x.email == this.indiData.email);
-                  console.log(value);
+                //   console.log(value);
                   
-                    this.userData.push(this.indiData);
-                break;
+                    // this.userData.push(this.indiData);
+                    break;
 
         
             default:

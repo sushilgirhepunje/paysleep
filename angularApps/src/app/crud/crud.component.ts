@@ -10,39 +10,44 @@ import { timeStamp } from "console";
 export class Crud
 {
     indiData:object = {email:" ",password:" ",isReady:false};
-
-    // email:string = " "
-    // password:string = ""
-    // isReady:boolean = false;
-
-    userData:object[]=[{}];
+    email:string = " "
+    password:string = ""
+    isReady:boolean = false;
     date = new Date();
     money:number = 100000;
     
+    empData :object[]=[
+        {empId:1,name:"Manish",loc:'Pune',salary:10000},
+        {empId:2,name:"Manisha",loc:'Mumbai',salary:20000},
+        {empId:3,name:"Mani",loc:'Pura',salary:30000}
+    ]
 
-    dataHandler(event){
-   let id = event.target.id;
 
-   if(id == "btn1"){
-    //    console.log(this.email);
-    //    console.log(this.password);
-    //    console.log(this.isReady);
-    //    this.userData.push({email:this.email,password:this.password,isReady:this.isReady})
-       console.log(this.userData)
-   }
-   else if(id=="upbtn"){
+    userData:object[]=[{}];
+
+//     dataHandler(event){
+//    let id = event.target.id;
+
+//    if(id == "btn1"){
+//     //    console.log(this.email);
+//     //    console.log(this.password);
+//     //    console.log(this.isReady);
+//     //    this.userData.push({email:this.email,password:this.password,isReady:this.isReady})
+//        console.log(this.userData)
+//    }
+//    else if(id=="upbtn"){
 
     
 
 
-   }
-   else if(id=="emId"){
-      if(this.userData.length > 1){
-       let data= this.userData.find(x=>x.email == this.email);
-       this.password = data.password;
-       this.isReady= data.isReady;
-      }
-   }
+//    }
+//    else if(id=="emId"){
+//       if(this.userData.length > 1){
+//        let data= this.userData.find(x=>x.email == this.email);
+//        this.password = data.password;
+//        this.isReady= data.isReady;
+//       }
+//    }
        
 
     //    let ids:string = event.target.id;
@@ -89,7 +94,7 @@ export class Crud
         //         break;
         // }
         // console.log(event.target.id);
-   }
+//    }
 }
 
 // // import { stringify } from "querystring";

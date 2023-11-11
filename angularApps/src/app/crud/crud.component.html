@@ -13,9 +13,10 @@
       <input type="checkbox" id="chId" (click)="dataHandler($event)"  class="form-check-input" >
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="button" id="btn1" (click)="dataHandler($event)" class="btn btn-primary">Submit</button>
+    <button type="button" id="btn1" (click)="dataHandler($event)" class="btn btn-primary">Submit</button> <br/> <br/>
+    <button type="button" id="upbtn" (click)="dataHandler($event)" class="btn btn-primary">Update</button>
   </form>
-   <table>
+   <table class="table">
    <tr *ngFor="let data of userData">
      <td>{{data.email}}</td>
      <td>{{data.password}}</td>

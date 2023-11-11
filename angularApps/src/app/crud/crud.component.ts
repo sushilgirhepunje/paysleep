@@ -10,12 +10,14 @@ import { timeStamp } from "console";
 export class Crud
 {
     indiData:object = {email:" ",password:" ",isReady:false};
-    email:string = " "
-    password:string = ""
-    isReady:boolean = false;
+
+    // email:string = " "
+    // password:string = ""
+    // isReady:boolean = false;
 
     userData:object[]=[{}];
-
+    date = new Date();
+    money:number = 100000;
     
 
     dataHandler(event){

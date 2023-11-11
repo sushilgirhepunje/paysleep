@@ -1,6 +1,6 @@
 <div>
   <!-- <p>{{money | currency:'INR':'code'}}</p> -->
-  <p>{{money | tds:'arg1'}}</p>
+  <p>{{money | tds:'pdf' : 'mf'}}</p>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" [(ngModel)]="email" (keyup)="dataHandler($event)" class="form-control" id="emId"

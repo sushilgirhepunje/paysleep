@@ -10,7 +10,7 @@ export class TDS implements PipeTransform{
 
             if(args.find(x=>x == "pf")){
                 tds = tds - (tds * 0.028);
-                return tds
+             
             }
             return tds;
     }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Header } from './layout/header.component';
 import { SideBar } from './layout/sidebar.component';
 import { Crud } from './crud/crud.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { Crud } from './crud/crud.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ import { Component } from "@angular/core";
 export class Crud
 {
     indiData:object = {email:" ",password:" ",isReady:false};
-    userData:object[]=[{}];
+    userData:object[]=[ {email:" ",password:" ",isReady:false}];
 
     dataHandler(event){
        let ids:string = event.target.id;
@@ -20,6 +20,9 @@ export class Crud
             case "emId":
             //  this.indiData.email = data;
                 this.indiData = {...this.indiData,email:data};
+                let value1 = this.userData.find(x=> x.email == this.indiData.email);
+                console.log(value1);
+                
                 break;
                 case "psId":
                     // this.indiData.password = data;
@@ -38,8 +41,9 @@ export class Crud
                 break;
 
                 case "upbtn":
-                  let value = this.userData.find(x=> x.email == this.indiData);
-                  log
+                  let value = this.userData.find(x=> x.email == this.indiData.email);
+                  console.log(value);
+                  
                     this.userData.push(this.indiData);
                 break;
 

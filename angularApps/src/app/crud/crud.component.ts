@@ -24,10 +24,10 @@ export class Crud
    let id = event.target.id;
 
    if(id == "btn1"){
-       console.log(this.email);
-       console.log(this.password);
-       console.log(this.isReady);
-       this.userData.push({email:this.email,password:this.password,isReady:this.isReady})
+    //    console.log(this.email);
+    //    console.log(this.password);
+    //    console.log(this.isReady);
+    //    this.userData.push({email:this.email,password:this.password,isReady:this.isReady})
        console.log(this.userData)
    }
    else if(id=="upbtn"){

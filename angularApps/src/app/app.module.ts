@@ -8,15 +8,13 @@ import { SideBar } from './layout/sidebar.component';
 import { Crud } from './crud/crud.component';
 import { FormsModule } from '@angular/forms';
 import { TDS } from './CustomPipe/tds.component';
-import { CustomepipePipe } from './customepipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     Header,
     SideBar,
     Crud,
-    TDS,
-    CustomepipePipe
+    TDS
   ],
   imports: [
     BrowserModule,

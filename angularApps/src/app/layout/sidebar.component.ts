@@ -86,6 +86,7 @@ import { Component } from "@angular/core";
         </div>
         <div class="col py-3">
         <templateForm></templateForm>
+        <http-client></http-client>
         </div>
         </div>
         </div>`

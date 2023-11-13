@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { log } from "console";
+// import HttpC
 @Component({
     selector:'templateForm',
     templateUrl:'./demo.templateform.html'
@@ -12,4 +14,6 @@ export class TemplateForm{
         console.log(form.valid);
         
     }
+    
 }
+

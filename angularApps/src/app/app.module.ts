@@ -9,6 +9,8 @@ import { SideBar } from './layout/sidebar.component';
 import { Crud } from './crud/crud.component';
 import { TDS } from './CustomPipe/tds.component';
 import { TemplateForm } from './TemplateForm/demo.templateform';
+import { CommonModule } from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,14 +18,17 @@ import { TemplateForm } from './TemplateForm/demo.templateform';
     SideBar,
     Crud,
     TDS,
-    TemplateForm
+    TemplateForm,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

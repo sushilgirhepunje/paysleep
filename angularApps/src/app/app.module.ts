@@ -9,6 +9,7 @@ import { Crud } from './crud/crud.component';
 import { FormsModule } from '@angular/forms';
 import { TDS } from './CustomPipe/tds.component';
 import { TempForm } from './TemplateForm/templateform.component';
+import { DemoFormComponent } from './demo-form/demo-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { TempForm } from './TemplateForm/templateform.component';
     Crud,
     TDS,
     TempForm,
+    DemoFormComponent,
     
   ],
   imports: [

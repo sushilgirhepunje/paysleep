@@ -85,7 +85,7 @@ import { Component } from "@angular/core";
             </div>
         </div>
         <div class="col py-3">
-            <crud></crud>
+        <templateForm></templateForm>
         </div>
         </div>
         </div>`
@@ -93,4 +93,5 @@ import { Component } from "@angular/core";
     export class SideBar{
         
     }
+    // <crud></crud>
     // <tempform></tempform>

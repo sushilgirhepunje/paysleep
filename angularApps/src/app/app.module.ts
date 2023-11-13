@@ -8,8 +8,7 @@ import { SideBar } from './layout/sidebar.component';
 import { Crud } from './crud/crud.component';
 import { FormsModule } from '@angular/forms';
 import { TDS } from './CustomPipe/tds.component';
-import { TempForm } from './TemplateForm/templateform.component';
-import { DemoFormComponent } from './demo-form/demo-form.component';
+import { TemplateForm } from './TemplateForm/demo.templateform';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,8 +16,7 @@ import { DemoFormComponent } from './demo-form/demo-form.component';
     SideBar,
     Crud,
     TDS,
-    TempForm,
-    DemoFormComponent,
+    TemplateForm
     
   ],
   imports: [

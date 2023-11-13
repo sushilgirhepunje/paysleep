@@ -85,11 +85,12 @@ import { Component } from "@angular/core";
             </div>
         </div>
         <div class="col py-3">
-           <crud></crud>
+            <crud></crud>
         </div>
-    </div>
-</div>`
-})
-export class SideBar{
-
-}
+        </div>
+        </div>`
+    })
+    export class SideBar{
+        
+    }
+    // <tempform></tempform>

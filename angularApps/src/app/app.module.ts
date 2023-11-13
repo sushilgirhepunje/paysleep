@@ -11,6 +11,7 @@ import { TDS } from './CustomPipe/tds.component';
 import { TemplateForm } from './TemplateForm/demo.templateform';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
+import { HttpDemo } from './DemoClientHttp/demohttp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
     Crud,
     TDS,
     TemplateForm,
-    
+    HttpDemo
   ],
   imports: [
     BrowserModule,

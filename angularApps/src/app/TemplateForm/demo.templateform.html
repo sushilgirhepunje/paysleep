@@ -11,11 +11,48 @@
 
     <button [disabled]="userData.invalid" class="btn btn-primary" type="submit" >Save</button>
 </form> -->
+<!-- Instructor code -->
+<!-- <form #userData"ngForm" (ngSubmit)="submitData(userData)">
 
-<form #userData="ngForm" (ngSubmit)="submitData(userData)">  <!-- we are creating a templateReference of userData and assigning object of type ngForm-->
+<input type="text" #fnamelement="ngModel" name="fname" required ngModel/>
+<div *ngIf="fnamelement.invalid  && fnamelement.touched">
+    FName is required
+</div>
+<input type="text" #lnamelement="ngModel" name="lname" required ngModel/>
+
+<input type="text" #pattern="ngModel" name="pname" pattern="[\D]" required ngModel/>
+
+
+<div *ngIf="(lnamelement.invalid  && lnamelement.touched)">
+    LName is required
+</div>
+<!-- <div *ngIf="(lnamelement.invalid  && lnamelement.touched) && fnamelement.pristine">
+    FName is required.
+</div> -->
+<!-- <div *ngIf="lnamelement.touched && fnamelement.pristine">
+    FName is required.
+</div>
+
+<button  [disabled]="userData.invalid" class="btn btn-primary" type="submit">Save</button>
+</form> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Viki code -->
+<form #userData="ngForm" (ngSubmit)="submitData(userData)"> 
+     <!-- we are creating a templateReference of userData and assigning object of type ngForm-->
     <label>UserName</label>
     <br/>
-    <input type="text" #fnamelement="ngModel" name="fname" required ngModel /> <!--when we add ngModel the automations takes place of the assignment of key-value-->
+    <input type="text" #fnamelement="ngModel" name="fname" required ngModel />
+     <!--when we add ngModel the automations takes place of the assignment of key-value-->
     <br/><br/>
     <div *ngIf="fnamelement.invalid && fnamelement.touched">
         <p style="color:red;">First Name is required</p>

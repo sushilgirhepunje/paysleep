@@ -9,7 +9,7 @@ export class HttpDemo{
     _http:HttpClient = null;
     constructor(http:HttpClient){
         this._http = http;
-        this._http.get("https://8080-bbfefdebbdfddbcfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/swagger/index.html").subscribe((data)=>{
+        this._http.get("https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/WeatherForecast").subscribe((data)=>{
             console.log(data);
         },(failure)=>{
             console.log(failure);

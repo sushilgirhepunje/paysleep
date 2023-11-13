@@ -4,7 +4,8 @@ import { Pipe,PipeTransform } from "@angular/core";
 })
 export class TDS implements PipeTransform{
     
-
+    {{1000 | currency:'INR':'DPS'}}
+    
     transform(value: any, ...args: any[]) {
             let tds = value - (value * 0.10);
 

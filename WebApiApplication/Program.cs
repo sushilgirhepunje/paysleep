@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("CorsPolicy");
+app.UseCors("corsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

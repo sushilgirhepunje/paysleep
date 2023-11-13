@@ -14,7 +14,8 @@ import { TDS } from './CustomPipe/tds.component';
     Header,
     SideBar,
     Crud,
-    TDS
+    TDS,
+    TemplateForm
   ],
   imports: [
     BrowserModule,

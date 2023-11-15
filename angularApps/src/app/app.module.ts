@@ -12,6 +12,7 @@ import { TemplateForm } from './TemplateForm/demo.templateform';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import { HttpDemo } from './DemoClientHttp/demohttp.component';
+import { DemoRoute } from './TemplateForm/demoRoute.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { HttpDemo } from './DemoClientHttp/demohttp.component';
     Crud,
     TDS,
     TemplateForm,
-    HttpDemo
+    HttpDemo,
+    DemoRoute
   ],
   imports: [
     BrowserModule,

@@ -85,7 +85,8 @@ import { Component } from "@angular/core";
             </div>
         </div>
         <div class="col py-3">
-        <http-client></http-client>
+        <a [routerLink]="/crud">http-client</a>
+        <demoRoute></demoRoute>
         </div>
         </div>
         </div>`
@@ -93,6 +94,8 @@ import { Component } from "@angular/core";
     export class SideBar{
         
     }
+    // <http-client></http-client>
+    // <a [routerLink]="/">Form</a>
     // <templateForm></templateForm>
     // <crud></crud>
     // <tempform></tempform>

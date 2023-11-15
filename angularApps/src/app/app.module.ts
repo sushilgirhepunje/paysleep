@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import { HttpDemo } from './DemoClientHttp/demohttp.component';
 import { DemoRoute } from './TemplateForm/demoRoute.component';
+import { HelloworldService } from './ServiceUtilities/helloworld.serivce';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { DemoRoute } from './TemplateForm/demoRoute.component';
     CommonModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,HelloworldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TokenDemo } from './tokenization.comopnent';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // TokenDemo
   ],
   imports: [
     BrowserModule,

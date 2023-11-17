@@ -1,0 +1,4 @@
+Steps to create WebApi
+
+-> dotnet new mvc -n projectname
+--> 

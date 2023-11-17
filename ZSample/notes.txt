@@ -1,4 +1,23 @@
 Steps to create WebApi
 
 -> dotnet new mvc -n projectname
---> 
+-> create Models
+-> create dbcontext file -> di mendatory
+-> do migrations and update database created
+-> Interface -> declare method only
+-> Repository create -> Inherit interface and use methods / di in repository 
+-> controller -> call the Repository method 
+-> program.cs -> 
+builder.Services.AddCors(x=>{
+    x.AddPolicy("corsPolicy",policy=>{
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+        policy.AllowAnyOrigin();
+    });
+});
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}

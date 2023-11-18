@@ -12,9 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<PayemntDetailContext>(options=>{
+builder.Services.AddDbContext<PaymentDetailContext>(options=>{
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
-})
+});
 
 var app = builder.Build();
 

@@ -27,7 +27,7 @@ namespace PaymentAPI.Controllers
         {
             context.PaymentDetails.Add(paymentDetail);
             context.SaveChanges();
-            return CreatedAtAction("Get",new Object{id=PaymentDetail.PaymentDetailId},paymentDetail);
+            return CreatedAtAction("Get",new {id=paymentDetail.PaymentDetailId},paymentDetail);
         }
 
         // [HttpPost]

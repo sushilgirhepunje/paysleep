@@ -18,10 +18,10 @@ namespace Testapi.Models
             db.Departments.Add(dept);
             db.SaveChanges();
         }
-        // public void FindDept(int id){
-        //     var data = db.Departments.Find(id);
-        //     return data;
-        // }
+        public void FindDept(int id){
+            var data = db.Departments.Find(id);
+            return data;
+        }
         /*
         public void DeleteDept(int id)
         {

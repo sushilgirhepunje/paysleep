@@ -28,6 +28,14 @@ namespace Testapi.Controllers
             }
                 return BadRequest();
             }
+
+            [HttpGet]
+            [Route("ListDept")]
+            public IActionResult GetDept()
+            {
+                var data = repo.GetDepartments();
+                return Ok(data);
+            }
     }   
 }
 

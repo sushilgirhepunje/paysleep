@@ -4,6 +4,9 @@ using Testapi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IConfiguration con = builder.Configuration;
+
+//DI
 builder.Services.AddDbContext<EmployeeDbContext>(options=>{
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
 });

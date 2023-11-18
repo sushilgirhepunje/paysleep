@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 namespace PaymentAPI.Models
 {
-    public class PaymentDetails
+    public class PaymentDetail
     {
         public int PaymentDetailId {get;set;}
         public string? CardOwnerNumber {get;set;}

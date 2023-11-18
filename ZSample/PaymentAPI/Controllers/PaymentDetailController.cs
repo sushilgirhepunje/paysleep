@@ -15,6 +15,27 @@ namespace PaymentAPI.Controllers
             this.context = _context;
         }
 
-        
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var data = context.PaymentDetails;
+            return Ok(data);
+        }
+
+        [HttpPost]
+        public IActionResult Post(PaymentDetail paymentDetail)
+        {
+            context.PaymentDetails.Add(paymentDetail);
+            context.SaveChanges();
+            return CreatedAtAction("Get",new Object{id=PaymentDetail.PaymentDetailId},paymentDetail);
+        }
+
+        // [HttpPost]
+        // public IActionResult Post(Department deptartment){
+        //    db.Departments.Add(deptartment);
+        //    db.SaveChanges();
+        //    return CreatedAtAction("Get",new {id=deptartment.DepartmentId},deptartment);
+
+        // }
     }
 }

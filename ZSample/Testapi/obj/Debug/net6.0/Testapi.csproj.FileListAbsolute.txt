@@ -1,0 +1,7 @@
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.csproj.AssemblyReference.cache
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.GeneratedMSBuildEditorConfig.editorconfig
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.AssemblyInfoInputs.cache
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.AssemblyInfo.cs
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.csproj.CoreCompileInputs.cache
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.MvcApplicationPartsAssemblyInfo.cs
+/home/coder/project/workspace/ZSample/Testapi/obj/Debug/net6.0/Testapi.MvcApplicationPartsAssemblyInfo.cache

@@ -1,1 +1,28 @@
-<p>employee works!</p>
+<div class="container">
+    <mat-card>
+        <mat-toolbar color="accent">
+            <div align="center" style="color:white;text-align:right;">
+                CRUD operation in angular 9 using Web api and Sql Database
+            </div>
+        </mat-toolbar>
+        <br/>
+        <mat-card-content>
+            <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm.value)">
+                <table>
+                    <tr>
+                        <td class="tbl1">
+                            <mat-form-field class="demo-full-width">
+                                <input formControlName="EmpName" matTooltip="Enter Employee Name" matInput placeholder="Employee Name">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!employeeForm.get('EmpName').value && employeeForm.get('EmpName').touched"></span>
+                            </mat-error>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

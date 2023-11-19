@@ -37,9 +37,18 @@
                     <tr *ngFor="let employee of allEmployees || async">
                         <td class="tbl2">{{employee.EmpName}}</td>
                         <td class="tbl2">{{employee.DateOfBirth || date}}</td>
-                        <td class="tbl2">{{}}</td>
-                        <td class="tbl2">{{}}</td>
-                        <td class="tbl2">{{}}</td>
+                        <td class="tbl2">{{employee.EmailId}}</td>
+                        <td class="tbl2">{{employee.Gender == 0?'Male':'Female'}}</td>
+                        <td class="tbl2">{{employee.Address}}</td>
+                        <td class="tbl2">{{employee.PinCode}}</td>
+                        <td class="tbl2">
+                            <button type="button" class="btn btn-info" matTooltip="Click Edit Button" (click)="loadEmployeeToEdit(employee.EmpId)">Edit</button>
+                        </td>
+                        
+                        <td class="tbl2">
+                            <button type="button" class="btn btn-info" matTooltip="Click Delete Button" (click)="deleteEmployee(employee.EmpId)">Delete</button>
+                        </td>
+                        
                     </tr>
                 </table>
             </form>

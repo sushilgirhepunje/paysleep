@@ -1,4 +1,4 @@
-export Interface Employee {
+export class Employee {
     EmpId:string;
     EmpName:string;
     DateOfBirth:Date;

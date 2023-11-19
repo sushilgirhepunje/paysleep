@@ -32,6 +32,36 @@ namespace CrudAngularAPI.Controllers
         }
 
         [HttpGet]
-        
+        [Route("GetEmployeeDetailsById/{employeeId}")]
+        public IActionResult GetEmployeeById(int employeeId){
+            try{
+            var emp = context.EmployeeDetails.Find(employeeId);
+                if(emp!= null)
+                {
+                    return Ok(emp);
+                }else{
+                    return NotFound();
+                }
+            }catch(Exception){
+                throw;
+            }
+        }
+
+        [HttpPost]
+        [Route("InsertEmployeeDetails")]
+        public IActionResult PostEmployee(EmployeeDetail empdetails)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try{
+                context.EmployeeDetails.Add(empdetails);
+                context.SaveChanges();
+            }catch(Exception){
+                throw;
+            }
+            return Created("Employee Details Added",empdetails);
+        }
     }
 }

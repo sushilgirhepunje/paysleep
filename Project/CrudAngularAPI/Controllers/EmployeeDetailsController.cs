@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CrudAngularAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrudAngularAPI.Controllers
 {
@@ -63,5 +65,36 @@ namespace CrudAngularAPI.Controllers
             }
             return Created("Employee Details Added",empdetails);
         }
+
+        [HttpPut]
+        [Route("UpdateEmployeeDetails")]
+        public IActionResult PutEmployeeMaster(EmployeeDetail empdetails)
+        {
+            if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
+            try
+            {
+              var emp = context.EmployeeDetails.Find(empdetails.EmpId);
+              if(emp!=null){
+                emp.EmpName = empdetails.EmpName;
+                emp.Address = empdetails.Address;
+                emp.EmailId = empdetails.EmailId;
+                emp.DateOfBirth = empdetails.DateOfBirth;
+                emp.Gender = empdetails.Gender;
+                emp.pinCode = empdetails.pinCode;
+              }
+                context.SaveChanges();
+
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            return Ok(empdetails);
+        }
+
+        public IActionResult DeleteEmployeeDeta
+
     }
 }

@@ -31,3 +31,4 @@ export class EmployeeService {
     return this.http.delete<Employee>(this.url+'/InsertEmployeeDetails/',employee,httpOptions);
    }
 }
+

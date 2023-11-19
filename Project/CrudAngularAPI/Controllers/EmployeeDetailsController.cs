@@ -94,7 +94,18 @@ namespace CrudAngularAPI.Controllers
             return Ok(empdetails);
         }
 
-        public IActionResult DeleteEmployeeDeta
-
+        [HttpDelete]
+        [Route("DelteEmployeeDetails")]
+        public IActionResult DeleteEmployee(int id){
+            var data = context.EmployeeDetails.Find(id);
+            if(data != null){
+                context.EmployeeDetails.Remove(data);
+                context.SaveChanges();
+                return Ok();
+            }else{
+                return NotFound();
+            }
+            
+        }
     }
 }

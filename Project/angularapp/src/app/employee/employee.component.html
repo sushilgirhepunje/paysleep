@@ -22,6 +22,26 @@
                         <td></td>
                     </tr>
                 </table>
+                <br/><br/>
+                <table class="table">
+                    <tr ngclass="btn-primary">
+                        <th class="tbl2">Employee Name</th>
+                        <th class="tbl2">Date Of Birth</th>
+                        <th class="tbl2">Email Id</th>
+                        <th class="tbl2">Gender</th>
+                        <th class="tbl2">Address</th>
+                        <th class="tbl2">Pin Code</th>
+                        <th class="tbl2">Edit</th>
+                        <th class="tbl2">Delete</th>
+                    </tr>
+                    <tr *ngFor="let employee of allEmployees || async">
+                        <td class="tbl2">{{employee.EmpName}}</td>
+                        <td class="tbl2">{{employee.DateOfBirth || date}}</td>
+                        <td class="tbl2">{{}}</td>
+                        <td class="tbl2">{{}}</td>
+                        <td class="tbl2">{{}}</td>
+                    </tr>
+                </table>
             </form>
         </mat-card-content>
     </mat-card>

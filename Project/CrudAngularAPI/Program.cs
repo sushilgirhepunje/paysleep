@@ -9,6 +9,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//to connect to the angular application 
+builder.Services.AddCors(x=>{
+    x.AddPolicy("corsPolicy",policy=>{
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+        policy.AllowAnyOrigin();
+    }); 
+});
+
+
+
+//
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options=>{
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
@@ -23,7 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("corsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

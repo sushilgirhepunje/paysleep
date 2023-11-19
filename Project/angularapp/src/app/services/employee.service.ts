@@ -8,5 +8,12 @@ import { Employee } from '../Models/employee';
 })
 export class EmployeeService {
   url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/EmployeeDetails"
-  constructor() { }
+  constructor(private http:HttpClient) { }
+    getAllEmployee():Observable<any[]>{
+      return this.http.get<any[]>(this.url+"/AllEmployeeDetails");
+   }
+
+   getEmployeById(employeeId:string):Observable<Employee>{
+    
+   }
 }

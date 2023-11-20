@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/Employee"
+  private url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/EmployeeDetails";
   constructor(private httpclient: HttpClient) { }
   getAllEmployee(): Observable<any[]> {
     return this.httpclient.get<any[]>(this.url + '/AllEmployeeDetails');

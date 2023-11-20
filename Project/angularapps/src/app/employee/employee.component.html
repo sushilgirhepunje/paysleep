@@ -1,1 +1,27 @@
-<p>employee works!</p>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table">
+            <thead>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>DateOfBirth</th>
+                <th>EmailId</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>PinCode</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of empdata">
+                    <td>{{emp.EmpId}}</td>
+                    <td>{{emp.EmpName}}</td>
+                    <td>{{emp.DateOfBirth}}</td>
+                    <td>{{emp.EmailId}}</td>
+                    <td>{{emp.Gender}}</td>
+                    <td>{{emp.Address}}</td>
+                    <td>{{emp.PinCode}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

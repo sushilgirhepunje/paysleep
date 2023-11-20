@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../service/employee.service';
 
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -21,10 +22,24 @@ export class EmployeeComponent implements OnInit {
       this.items=data;
     });
   }
+ 
+
 }
 
 
 /*
+
+
+//Add Details
+onSubmitPost(postForm:NgForm){
+  this.pay.Create(postForm.value);
+  console.log("Added Successfully!!!");
+}
+
+<h1>Create</h1>
+<form #postForm="ngForm" (ngSubmit)="onSubmitPost(postForm)">
+
+
 moviedata:Imovie = {id:0,name:'',yearrelease:0,rating:0}
   constructor(private ms:MovieserviceService,private route:Router) { }
   saveData(movie:Imovie):void
@@ -39,9 +54,4 @@ moviedata:Imovie = {id:0,name:'',yearrelease:0,rating:0}
   }
 
 
-  //Add Details
-  onSubmitPost(postForm:NgForm){
-    this.pay.Create(postForm.value);
-    console.log("Added Successfully!!!");
-  }
 */ 

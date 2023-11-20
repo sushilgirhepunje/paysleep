@@ -105,7 +105,7 @@ namespace CrudAngularAPI.Controllers
             }else{
                 return NotFound();
             }
-            
+            /*DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';*/ 
         }
     }
 }

@@ -22,3 +22,19 @@ export class EmployeeComponent implements OnInit {
     });
   }
 }
+
+
+/*
+moviedata:Imovie = {id:0,name:'',yearrelease:0,rating:0}
+  constructor(private ms:MovieserviceService,private route:Router) { }
+  saveData(movie:Imovie):void
+  {
+    this.moviedata = movie
+    this.ms.addMovie(this.moviedata).subscribe(     
+      ()=>{
+      alert('Record Added Successfully')
+      this.route.navigate(['/listmovies'])
+      }
+      )
+  }
+*/ 

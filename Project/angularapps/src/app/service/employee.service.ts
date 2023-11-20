@@ -1,16 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 // import { Employee } from '../Models/employee';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/EmployeeDetail";
+  private url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/Employee";
+
   constructor(private httpclient: HttpClient) { }
-  getAllEmployee(): Observable<any[]> {
-    return this.httpclient.get<any[]>(this.url + '/AllEmployeeDetails');
+  getAllEmployee(): Observable<Employee[]> {
+    return this.httpclient.get<Employee[]>(this.url + '/AllEmployeeDetails');
   }
 }
 

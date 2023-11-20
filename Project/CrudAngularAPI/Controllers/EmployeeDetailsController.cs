@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CrudAngularAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Employee")]
     public class EmployeeDetailsController : ControllerBase
     {
         private ApplicationDbContext context;

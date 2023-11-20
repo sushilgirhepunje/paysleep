@@ -1,4 +1,4 @@
-export class Employee {
+export class EmployeeDetail {
     EmpId:string;
     EmpName:string;
     DateOfBirth:Date;

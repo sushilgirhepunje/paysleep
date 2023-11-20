@@ -26,9 +26,9 @@ export class EmployeeService {
     const httpOptions = {headers:new HttpHeaders({'Context-Type':'application/json'})}
     return this.http.put<Employee>(this.url+'/InsertEmployeeDetails/',employee,httpOptions);
    }
-   deleteEmployee(employee:Employee):Observable<Employee>{
-    const httpOptions = {headers:new HttpHeaders({'Context-Type':'application/json'})}
-    return this.http.delete<Employee>(this.url+'/InsertEmployeeDetails/',employee,httpOptions);
-   }
+  //  deleteEmployee(employee:Employee):Observable<Employee>{
+  //   const httpOptions = {headers:new HttpHeaders({'Context-Type':'application/json'})}
+  //   return this.http.delete<Employee>(this.url+'/InsertEmployeeDetails/',employee,httpOptions);
+  //  }
 }
 

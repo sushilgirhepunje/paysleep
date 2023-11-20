@@ -7,7 +7,7 @@ import { Employee } from '../Models/employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-  url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/Employee"
+  url = "https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/EmployeeDetails"
   constructor(private http:HttpClient) { }
     getAllEmployee():Observable<Employee[]>{
       return this.http.get<Employee[]>(this.url+"/AllEmployeeDetails");

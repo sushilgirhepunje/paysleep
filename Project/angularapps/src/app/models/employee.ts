@@ -1,7 +1,7 @@
 export class Employee {
     EmpId:string;
     EmpName:string;
-    DateOfBirth:DateTime;
+    DateOfBirth:Date;
     EmailId:string;
     Gender:string;
     Address:string;

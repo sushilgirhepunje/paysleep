@@ -9,15 +9,15 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./addemployee.component.css']
 })
 export class AddemployeeComponent implements OnInit {
-  empdata:Employee = {EmpId:0,EmpName:'',DateOfBirth:"",EmailId:'',Gender:'',Address:'',PinCode:''}
+  empdata:Employee = {EmpId:null,EmpName:'',DateOfBirth:null,EmailId:'',Gender:'',Address:'',PinCode:''}
   constructor(private emp:EmployeeService,private route:Router) { }
-  saveData(movie:Employee):void
+  saveData(employee:Employee):void
   {
-    this.empdata = movie
+    this.empdata = employee
     this.emp.addEmployee(this.empdata).subscribe(     
       ()=>{
       alert('Record Added Successfully')
-      this.route.navigate(['/listmovies'])
+      this.route.navigate(['/InsertEmployeeDetails'])
       }
       )
   }

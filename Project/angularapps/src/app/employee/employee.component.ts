@@ -37,4 +37,11 @@ moviedata:Imovie = {id:0,name:'',yearrelease:0,rating:0}
       }
       )
   }
+
+
+  //Add Details
+  onSubmitPost(postForm:NgForm){
+    this.pay.Create(postForm.value);
+    console.log("Added Successfully!!!");
+  }
 */ 

@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,12 @@ export class EmployeeService {
 
   getAllEmployee(): Observable<any[]> {
     return this.httpclient.get<any[]>(this.url + '/AllEmployeeDetails');
+  }
+ 
+  httpOptions={headers:new HttpHeaders({'Content-type':'application/json'})}
+  addEmployee(empdata:Employee):Observable<Employee>
+  {
+    return this.httpclient.post<Employee>(this.url+'/InsertEmployeeDetails',empdata,this.httpOptions)
   }
 }
 
@@ -52,4 +59,23 @@ private url="https://8080-faebfbbfffabcaaaceeafebeccaddbefddaf.premiumproject.ex
     return this.httpclient.delete<Imovie>(this.url+'/DeleteMovie'+ id)
   }
 }
+
+
+----
+viki
+----
+Create(data:any){
+    let resData:any="";
+    let httpHeader:HttpHeaders=new HttpHeaders({
+      Accept:"application/json"
+    })
+    this.http.post("https://8080-bdedfececadfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/PaymentDetail/PostPaymentDetail",data,{headers:httpHeader})
+    .subscribe(res=>{
+      resData=res;
+    },
+    error=>{
+      resData=error
+    })
+    return resData
+  }
 */ 

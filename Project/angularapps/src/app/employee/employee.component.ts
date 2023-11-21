@@ -8,6 +8,8 @@ import { EmployeeService } from '../service/employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+
+  
   items:any[];
 
   constructor(private emp:EmployeeService) {

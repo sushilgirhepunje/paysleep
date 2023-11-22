@@ -21,3 +21,25 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+=======================---------------------------===========================
+Services
+
+export class PlayerService{
+    private url=""
+
+    constructor(private http:HttpClient){}
+
+    //Get all details Services
+    getAll():Observable<any[]>{
+        return this.http.get<any[]>(this.url+"/route");
+    }
+
+    //Create Player
+    Create(empdata:any)
+    {
+        let resData:any="
+    }
+
+}

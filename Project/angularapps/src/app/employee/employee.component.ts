@@ -30,6 +30,22 @@ export class EmployeeComponent implements OnInit {
 
 
 /*
+/
+Create(empdata:any){
+	let resData:any="";
+	let httpHeader:HttpHeaders= new HttpHeaders({
+Accept:"application/json"
+})
+this.http.post(url+empdata,{headers:httpHeader}).subscribe(res=>{
+resData=res;
+},
+error=>{
+resData=error
+ })
+return resData
+  }
+}
+/ 
 
 
 //Add Details

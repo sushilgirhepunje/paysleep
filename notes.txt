@@ -37,9 +37,37 @@ export class PlayerService{
     }
 
     //Create Player
-    Create(empdata:any)
+    Create(data:any)
     {
-        let resData:any="
+        let resData:any="";
+        let httpHeader:HttpHeaders=new HttpHeaders({
+            Accpt:'application/json"
+        })
+        this.http.post(url,data,{headers:httpHeader}).subscribe(res=>{
+            resData=res;
+        },
+        error=>{
+            resData=error
+        } )
+        return resData
+    }
+
+    //Get update
+    UpdateById(id:number,updatedData:any):Observable<any>{
+        const url=`${this.url}/UpdatePlayer/${id}`;
+        return this.http.put<any>(url,updatedData);
+    }
+
+    // Delete
+    deleteById(id:number):Observable<any>{
+        const url=`${this.url}/UpdatePlayer/${id}`;
+        return this.http.delete<any>(url);
     }
 
 }
+
+
+
+// delete component
+<h2>Delete</h2>
+<label for="deleteItemId">Enter 

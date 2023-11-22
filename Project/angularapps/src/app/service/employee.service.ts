@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { Employee } from '../models/employee';
-// import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +29,27 @@ export class EmployeeService {
    })
    return resData
   }
+
+
+  //delete employeee
+  // let responseData:any="";
+  // let httpHeaders:HttpHeaders = new HttpHeaders({
+    //   Accept:"applicatoin/json"
+    // })
+    // this.httpclient.delete(this.url+"/DelteEmployeeDetails"+id,{headers:httpHeaders}).subscribe(
+      //   res=>{
+        //     responseData = res;
+        //   },
+        //   error=>{
+          //     responseData = error;
+          //   })
+          //   return responseData;
+   
+          deleteEmployeeById(id:number):Observable<any>{
+    
+      return this.httpclient.delete<any>(`${this.url}/DeleteEmployeeDetails/${id}`);
+
+  }
+
 
 }

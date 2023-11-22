@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../service/employee.service';
-
+import { Router } from '@angular/router';
+ 
 
 @Component({
   selector: 'app-employee',
@@ -25,6 +26,11 @@ export class EmployeeComponent implements OnInit {
     });
   }
  
+  deleteEmployee(employeeId:number):void{
+    this.emp.deleteEmployeeById(employeeId).subscribe(res=>{
+      this.loadItems();
+    })
+  }
 
 }
 

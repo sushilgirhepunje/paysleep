@@ -52,12 +52,12 @@ export class PlayerService{
         return resData
     }
 
-    //Get update
+    //Get update viki
     UpdateById(id:number,updatedData:any):Observable<any>{
         const url=`${this.url}/UpdatePlayer/${id}`;
         return this.http.put<any>(url,updatedData);
     }
-
+  
     // Delete
     deleteById(id:number):Observable<any>{
         const url=`${this.url}/UpdatePlayer/${id}`;
@@ -67,7 +67,52 @@ export class PlayerService{
 }
 
 
-
+================================================================
 // delete component
+.ts
+
+deleteItem():void{
+    if(this.deleteItemId){
+        this.palyer.deleteById(this.deleteItemId).subscribe(()=>{
+            log.'item delete Successfully'
+        })
+    }
+}
+
+
+.html 
+
 <h2>Delete</h2>
-<label for="deleteItemId">Enter 
+<label for="deleteItemId">Enter Player to Delete: </label>
+<input type=number id="deleteItemId" [(ngModel)]="deleteItemId" name="deleteItemId">
+<button (click)="deleteItem()">Delete</button>
+
+===============================================================
+
+// udpate component
+
+.ts
+
+  // udpate
+    OnSubmitPut(putForm:NgForm){
+        this.http.UpdateData(putForm.value.id,putForm.value);
+    }
+
+.html
+
+<form #postForm="ngForm" (ngSubmit)="OnSubmitPut(putForm)">
+    div>label><input type="number" name="id" ngModel>
+
+    div>button class="btn btn-primary" type="submit"> Submit</button>
+
+
+===========================================================================
+
+    npx ng g module players --routing 
+
+    AppComponent.html
+    routerlink
+
+    npx ng g component player/create
+
+    

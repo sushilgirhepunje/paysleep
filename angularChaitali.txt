@@ -1,0 +1,177 @@
+app-routing
+ 
+import { Component, NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { PostDeptComponent } from './post-dept/post-dept.component';
+import { GetDeptComponent } from './get-dept/get-dept.component';
+import { DeleteDeptComponent } from './delete-dept/delete-dept.component';
+import EditDeptComponent from './edit-dept/edit-dept.component';
+import { GetByIdComponent } from './get-by-id/get-by-id.component';
+import { GetEmpComponent } from './get-emp/get-emp.component';
+import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
+import { PostEmpComponent } from './post-emp/post-emp.component';
+import { EditEmpComponent } from './edit-emp/edit-emp.component';
+import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
+import { GetEmpByIdComponent } from './get-emp-by-id/get-emp-by-id.component';
+ 
+ 
+const routes: Routes = [
+  {path:'',component:MenuComponent},
+  {path: 'postdept',component:PostDeptComponent},
+  {path: 'DisplayDept',component:GetDeptComponent},
+  {path: 'DeleteLink/:departmentId',component:DeleteDeptComponent},
+  {path: 'Editlink/:departmentId',component:EditDeptComponent},
+  {path: 'GetLinkById/:departmentId',component:GetByIdComponent},
+  {path: 'DisplayEmplink',component:GetEmpComponent},
+  {path: 'postemplink',component:PostEmpComponent},
+  {path: 'editemplink/:employeeId',component:EditEmpComponent},
+  {path: 'deleteemplink/:employeeId',component:DeleteEmpComponent},
+  {path: 'getempLinkbyid/:employeeId',component:GetEmpByIdComponent}
+];
+ 
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+ 
+ 
+get.comopnnet
+<h2>Data Table</h2> <div class ="container... by Chaitali Satva Vinkare
+Chaitali Satva Vinkare
+10:42 AM
+<h2>Data Table</h2>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table">
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Department ID</th>
+            <td>Salary</td>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+ 
+            <tr *ngFor="let d of empData">
+                <td>{{d.employeeId}}</td>
+                <td>{{d.employeeName}}</td>
+                <td>{{d.departmentId}}</td>
+                <td>{{d.salary}}</td>
+               
+                <td><a [routerLink]="['/editemplink/',d.employeeId]">Edit</a></td>
+                <!-- <td><a [routerLink]="['/deleteemplink/',d.employeeId]">Delete</a></td> -->
+                <td><button class="btn btn-danger" (click)="DeleteEmpData(d.employeeId)">Delete</button></td>
+                <td><a [routerLink]="['/getempLinkbyid/',d.employeeId]">Details</a></td>
+            </tr>
+        </table>
+               
+        <a [routerLink]="'/postemplink'">Add</a>
+    </div>
+</div>
+ 
+<button class="btn btn-dark" (click)="BackToList()" >Go back to list</button>
+ 
+ 
+get emp.component   import { Component, OnI... by Chaitali Satva Vinkare
+Chaitali Satva Vinkare
+10:42 AM
+get emp.component
+ 
+import { Component, OnInit } from '@angular/core';
+import { IEmployee } from '../model/iemployee';
+import { CrudService } from '../service/crud.service';
+import { Router } from '@angular/router';
+ 
+@Component({
+  selector: 'app-get-emp',
+  templateUrl: './get-emp.component.html',
+  styleUrls: ['./get-emp.component.css']
+})
+export class GetEmpComponent implements OnInit {
+ 
+  empData:IEmployee[]=[];
+ 
+  constructor(private cs:CrudService,private route:Router) {
+    this.cs.getAllEmp().subscribe(data=>{this.empData.push(...data)});
+  }
+ 
+  ngOnInit() {
+  }
+  DeleteEmpData(employeeId:number){
+    this.cs.DeleteEmp(employeeId).subscribe(()=>{
+      this.route.navigate(['/DisplayEmplink']);
+    })
+  }
+  BackToList(){ this.route.navigate(['']); }
+ 
+}
+ 
+delete.html by Chaitali Satva Vinkare
+Chaitali Satva Vinkare
+10:43 AM
+delete.html
+<h2>Deleting</h2>   <form #userDelete ="ng... by Chaitali Satva Vinkare
+Chaitali Satva Vinkare
+10:43 AM
+<h2>Deleting</h2>
+ 
+<form #userDelete="ngForm" (ngSubmit)="DeleteEmpData()">
+    <div>
+        <label>Employee Id</label>
+        <input [ngModel]="empData.employeeId" name="employeeId" type="text" />
+    </div>
+    <div>
+        <label>Employee Name</label>
+        <input [ngModel]="empData.employeeName" name="employeeName" type="text"/>
+    </div>
+    <div>
+        <label>Department ID</label>
+        <input [ngModel]="empData.departmentId" name="departmentId" type="text"/>
+    </div>
+    <div>
+        <label>Salary</label>
+        <input [ngModel]="empData.salary" name="salary" type="text"/>
+    </div>
+ 
+        <button class="btn btn-primary" type="submit">Delete</button>
+</form>
+ 
+delete.emp.component.html   import { Compon... by Chaitali Satva Vinkare
+Chaitali Satva Vinkare
+10:43 AM
+delete.emp.component.html
+ 
+import { Component, OnInit } from '@angular/core';
+import { IEmployee } from '../model/iemployee';
+import { CrudService } from '../service/crud.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+ 
+@Component({
+  selector: 'app-delete-emp',
+  templateUrl: './delete-emp.component.html',
+  styleUrls: ['./delete-emp.component.css']
+})
+export class DeleteEmpComponent implements OnInit {
+  empData:IEmployee
+  employeeId:number
+ 
+  constructor(private cs:CrudService, private route:Router, private ar:ActivatedRoute) { }
+ 
+  ngOnInit() {
+    const tid=this.ar.snapshot.paramMap.get('employeeId');
+    this.employeeId=Number(tid);
+    this.cs.FindempId(this.employeeId).subscribe((data:IEmployee)=>this.empData=data);
+  }
+  DeleteEmpData(dept:NgForm){
+    this.cs.DeleteEmp(this.employeeId).subscribe(()=>{alert("Delete")
+    this.route.navigate(["/DisplayEmplink"]) }
+    )
+  }
+ 
+}
+ 
+has context menu
+
+

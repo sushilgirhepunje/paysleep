@@ -1,0 +1,387 @@
+main services
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+// import { error } from 'console';
+
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BackendService {
+
+  constructor(private http: HttpClient) { }
+
+  SaveData(data: any) { //post
+    let responseData: any = "";
+    let httpHeaders: HttpHeaders = new HttpHeaders({
+      Accept: "application/json"
+    })
+
+    this.http.post("https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee", data, { headers: httpHeaders })
+      .subscribe(res => {
+        responseData = res;
+
+      },
+        error => {
+          responseData = error;
+        })
+    return responseData;
+  }
+
+  // save(data:any){
+  //   let r:any="";
+  //   let httpHeaders:HttpHeaders=new HttpHeaders({
+  //     Accept:"application/json"
+  //   })
+
+  //   this.http.post("",data,{headers:httpHeaders})
+  //   .subscribe(res=>{
+  //     r=res;
+  //   },
+  //   err=>{
+  //     r=err;
+  //   })
+  //   return r;
+  // }
+
+  UpdateData(id: number, data: any) { //put
+    let responseData: any = "";
+    let httpHeaders: HttpHeaders = new HttpHeaders({
+      Accept: "application/json"
+    })
+    this.http.put("https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee/" + id, data, { headers: httpHeaders })
+      .subscribe(res => {
+        responseData = res;
+
+      },
+        error => {
+          responseData = error;
+        }
+      )
+    return responseData;
+  }
+
+  put(id:number,data:any){
+    let r:any="";
+    let h:HttpHeaders=new HttpHeaders({
+      Accept:"application/json"
+    })
+
+    this.http.put("url"+id,data,{headers:h})
+    .subscribe(res=>{
+      r=res;
+    },
+    e=>{
+      r=e;
+    })
+    return r;
+  }
+
+  // update(id: number, data: any) {
+  //   let r: any = "";
+  //   let httpHeaders: HttpHeaders = new HttpHeaders({
+  //     Accept: "application/json"
+  //   })
+
+  //   this.http.put("url" + id, data, { headers: httpHeaders })
+  //     .subscribe(res => {
+  //       r = res;
+  //     },
+  //       e => {
+  //         r = e;
+  //       })
+  //   return r;
+  // }
+
+  DeleteData(id: number) { //delete
+    let responseData: any = "";
+    let httpHeaders: HttpHeaders = new HttpHeaders({
+      Accept: "application/json"
+    })
+    this.http.delete("https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee/" + id, { headers: httpHeaders })
+      .subscribe(res => {
+        responseData = res;
+
+      },
+        error => {
+          responseData = error;
+      })
+    return responseData;
+  }
+
+  // delete(id: number) {
+  //   let r: any = "";
+  //   let h: HttpHeaders = new HttpHeaders({
+  //     Accept: "application/json"
+  //   })
+
+  //   this.http.delete("url" + id, { headers: h })
+  //     .subscribe(res => {
+  //       r = res;
+  //     },
+  //       e => {
+  //         r = e;
+  //     })
+  //     return r;
+  // }
+
+  GetData(): Observable<IEmployee[]> {
+    let responceData: any = "";
+    let httpHeaders: HttpHeaders = new HttpHeaders({
+      Accept: 'application/json'
+    })
+    return this.http.get<IEmployee[]>("https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee", { headers: httpHeaders })
+
+  }
+
+  // get():Observable<IEmployee[]>{
+  //   let httpHeaders:HttpHeaders=new HttpHeaders({
+  //     Accept:"application/json"
+  //   })
+
+  //   return this.http.get<IEmployee[]>("url",{headers:httpHeaders});
+
+  // }
+
+  GetDataById(id: number): Observable<IEmployee[]> { //retrive by id https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee/8
+    let responceData: any = "";
+    let httpHeaders: HttpHeaders = new HttpHeaders({
+      Accept: 'application/json'
+    })
+    return this.http.get<IEmployee[]>("https://8081-abbcbfeabdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Employee/" + id, { headers: httpHeaders });
+  }
+
+  // getbyid(id:number):Observable<IEmployee[]>{
+  //   let httpHeaders:HttpHeaders=new HttpHeaders({
+  //     Accept:"application/json"
+  //   })
+
+  //   return this.http.get<IEmployee[]>("url"+id,{headers:httpHeaders});
+  // }
+
+}
+
+export interface IEmployee {
+  id: number;
+  name: string;
+  salary: number;
+  joinDate: string;
+}
+
+
+====================================================
+crud component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { BackendService } from '../backend.service';
+import { IEmployee } from '../backend.service'
+// import { error } from 'console';
+
+@Component({
+  selector: 'app-crud-operations',
+  templateUrl: './crud-operations.component.html',
+  styleUrls: ['./crud-operations.component.css']
+})
+export class CrudOperationsComponent implements OnInit {
+  listData: IEmployee[] = []
+
+  listDataById: IEmployee[] = []
+
+  e:string="Not Found";
+
+  found:boolean=false;
+
+  constructor(private http: BackendService) {
+    
+
+  }
+
+  ngOnInit() {
+  }
+
+
+  onSubmitPost(postForm: NgForm) {
+
+    this.http.SaveData(postForm.value);
+  }
+
+  onSubmitPut(putForm: NgForm) {
+    this.http.UpdateData(putForm.value.id, putForm.value);
+  }
+
+  onSubmitDelete(deleteForm: NgForm) {
+    this.http.DeleteData(deleteForm.value.id);
+  }
+
+  onSubmitGet(){
+    this.http.GetData().subscribe(success => {
+      this.listData = success;
+    })
+  }
+
+
+  onSubmitGetById(getByIdForm:NgForm){
+    this.http.GetDataById(getByIdForm.value.id).subscribe(success => {
+      this.listDataById = success;
+      this.found=true;
+    },
+    (error)=>{
+      // error="Not Found";
+      // this.e=error;
+      if(error!="")
+      this.found=false;
+    })
+    console.log(this.listDataById)
+  }
+
+  method_name(form_name:NgForm){
+    this.http.GetDataById(form_name.value.id)
+  }
+
+}
+
+===============================================
+Crud component.html
+<!-- add form module in module in app.module.ts -->
+
+<!-- {{1000|currency:"INR"}} -->
+
+<h1>Post</h1>
+
+<form #postForm="ngForm" (ngSubmit)="onSubmitPost(postForm)">
+
+
+    <div class="form-group">
+        <label for="name">Name</label><br>
+        <input type="text" name="name" #fname="ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+        <label for="salary">Salary</label> <br>
+        <input type="number" name="salary" #lname="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="joindate">JoinDate</label><br>
+        <input type="datetime-local" name="joinDate" ngModel>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary my-3" type="submit">Submit</button>
+    </div>
+
+</form>
+
+<br>
+<h1>Put</h1>
+
+<form #putForm="ngForm" (ngSubmit)="onSubmitPut(putForm)">
+
+    <div class="form-group">
+        <label for="id">Id</label><br>
+        <input type="number" name="id" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name</label><br>
+        <input type="text" name="name" #fname="ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+        <label for="salary">Salary</label> <br>
+        <input type="number" name="salary" #lname="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="joindate">JoinDate</label><br>
+        <input type="datetime-local" name="joinDate" ngModel>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary my-3" type="submit">Submit</button>
+    </div>
+
+</form>
+
+<br>
+<h1>Delete</h1>
+
+<form #deleteForm="ngForm" (ngSubmit)="onSubmitDelete(deleteForm)">
+
+    <div class="form-group">
+        <label for="id">Id</label><br>
+        <input type="number" name="id" ngModel>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary my-3" type="submit">Submit</button>
+    </div>
+
+</form>
+
+<br>
+<h1>Get</h1>
+
+<div class="form-group">
+        <button class="btn btn-primary my-3" type="submit" (click)="onSubmitGet()">Submit</button>
+    </div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>JoinDate</th>
+    </tr>
+    <tr *ngFor="let i of listData">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.salary}}</td>
+        <td>{{i.joinDate}}</td>
+    </tr>
+</table>
+
+<br>
+<h1>GetById</h1>
+
+<form #getByIdForm="ngForm" (ngSubmit)="onSubmitGetById(getByIdForm)">
+
+    <div class="form-group">
+        <label for="id">Id</label><br>
+        <input type="number" name="id" ngModel>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary my-3" type="submit">Submit</button>
+    </div>
+
+</form>
+
+<div *ngIf="found">
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>JoinDate</th>
+    </tr>
+    <tr>
+        <td>{{listDataById.id}}</td>
+        <td>{{listDataById.name}}</td>
+        <td>{{listDataById.salary}}</td>
+        <td>{{listDataById.joinDate}}</td>
+    </tr>
+</table>
+</div>
+
+<div *ngIf="!found">
+    <p>{{e}}</p>
+</div>
+
+

@@ -1,4 +1,4 @@
-<div class="add-employee-form">
+<!-- <div class="add-employee-form">
     <h2>Add Employee</h2>
     <form #postForm="ngForm" (ngSubmit)="onSubmitPost(postForm)">
         <div class="form-group">
@@ -31,4 +31,64 @@
 
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
-</div>
+</div> -->
+<div class="add-employee-form">
+    <h2>Add Employee</h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="empName">Employee Name:</label>
+            <input type="text" class="form-control" formControlName="empName" />
+            <div *ngIf="employeeForm.get('empName').invalid && employeeForm.get('empName').touched">
+                <span *ngIf="employeeForm.get('empName').errors?.required">Employee Name is required.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth" />
+            <div *ngIf="employeeForm.get('dateOfBirth').invalid && employeeForm.get('dateOfBirth').touched">
+                <span *ngIf="employeeForm.get('dateOfBirth').errors?.required">Date of Birth is required.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="emailId">Email ID:</label>
+            <input type="email" class="form-control" formControlName="emailId" />
+            <div *ngIf="employeeForm.get('emailId').invalid && employeeForm.get('emailId').touched">
+                <span *ngIf="employeeForm.get('emailId').errors?.required">Email ID is required.</span>
+                <span *ngIf="employeeForm.get('emailId').errors?.email">Invalid email format.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select name="gender" class="form-control" formControlName="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" formControlName="address" />
+            <div *ngIf="employeeForm.get('address').invalid && employeeForm.get('address').touched">
+                <span *ngIf="employeeForm.get('address').errors?.required">Address is required.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pinCode">Pin Code:</label>
+            <input type="text" class="form-control" formControlName="pinCode" />
+            <div *ngIf="employeeForm.get('pinCode').invalid && employeeForm.get('pinCode').touched">
+                <span *ngIf="employeeForm.get('pinCode').errors?.required">Pin Code is required.</span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Add</button>
+    </form>
+
+
+    <!-- 
+
+
+        this.employeeForm=this.formBuilder.group({
+            empName:['',Validators.required],
+            dateOfBirth:['',Validators.rquired],
+            emailId:['',]
+        })
+     -->

@@ -1,0 +1,3 @@
+diagram 
+squared barck tick -> null
+squared brack empty ->not null

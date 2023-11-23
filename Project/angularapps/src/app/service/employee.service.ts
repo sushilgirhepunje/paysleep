@@ -15,13 +15,14 @@ export class EmployeeService {
     return this.httpclient.get<any[]>(this.url + '/AllEmployeeDetails');
   }
  
+
     // add employee 
   Create(empdata:any){
     let resData:any="";
     let httpHeader:HttpHeaders=new HttpHeaders({
       Accept:"application/json"
     })
-   this.httpclient.post("https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api/Employee/InsertEmployeeDetails",empdata,{headers:httpHeader}).subscribe(res=>{
+   this.httpclient.post(`${this.url}/InsertEmployeeDetails`,empdata,{headers:httpHeader}).subscribe(res=>{
     resData=res;
    },
    error=>{

@@ -25,7 +25,7 @@ export class ReativeformComponent implements OnInit {
     })
    }
 
-  ngOnInit() {
+  ngOnInit():void {
   }
 
 }

@@ -27,7 +27,9 @@ private apiBaseUrl="https://8080-bbfefdebbdfddbcfabcaaaceeafebecebbffdafdefabcc.
     return this.http.post<any[]>(`${this.apiBaseUrl}/laundary/schedule/add`,scheduleData,this.httpOptions);
   }
   
-  
+  deleteSchedule(id:number){
+    return this.http.delete<any[]>(`${this.apiBaseUrl}/laundary/schedule/delete`+id)
+  }
 
 
 } 

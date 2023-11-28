@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "lyIGUk0ONRgK2VAe+rz+HroDN4+yyVFNz6uZqxQJQvWgFS8fnqHtkQ64n07XKCbVXne1s6eoQ5GrQMCoA1U4cg==",
+  "dgSpecHash": "wnjUDbxSdPFrpFiXEowjzl/JQjUBeJJLMCZUg7F4w6nT4kZ8B8n/h5gn0Rln04jI5ICmJXg9IbF2g5t6vGvM8w==",
   "success": true,
   "projectFilePath": "/home/coder/project/workspace/CapstonProject/boathousing/boathousing.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/coder/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/coder/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/home/coder/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

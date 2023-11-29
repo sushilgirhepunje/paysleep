@@ -10,13 +10,10 @@ namespace boathousing.Models
     public long PaymentID { get; set; }
     public long BookingID { get; set; }
     public long UserID { get; set; }
-    public string Status { get; set; }
+    public string? Status { get; set; }
     public double TotalAmount { get; set; }
     public double AmountPaid { get; set; }
     public DateTime PaymentDate { get; set; }
-    public string ModeOfPayment { get; set; }
-
-    public virtual Booking Booking {get;set;}
-    public virtual User User {get;set;}
+    public string? ModeOfPayment { get; set; }
     }
 }

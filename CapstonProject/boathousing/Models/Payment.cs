@@ -15,5 +15,8 @@ namespace boathousing.Models
     public double AmountPaid { get; set; }
     public DateTime PaymentDate { get; set; }
     public string ModeOfPayment { get; set; }
+
+    public virtual Booking Booking {get;set;}
+    public virtual User User {get;set;}
     }
 }
